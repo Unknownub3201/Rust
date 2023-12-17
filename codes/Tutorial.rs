@@ -27,6 +27,7 @@ fn main(){
     
     //calling another function 
     data_type();
+    loop_def();
 }
 
 //You can define your own specific functions(It must be called in main function for it to be able
@@ -50,6 +51,7 @@ fn data_type(){
     //division
     let _quo = 4.34/2.1;
     let _q = 5/2;
+   
     //remainder/Modulus 
     let _mo = 43 % 2;
 
@@ -62,4 +64,18 @@ fn data_type(){
 
     //String 
     let _string:&str = "Hello, World!";
+}
+
+fn loop_def(){
+    let mut _x:i32 = 0;
+    // A simple for loop, the i takes on values -5,-4....3,4;
+    for i in -5..5{
+        _x += i;
+    }
+    
+    let mut _sum:u32 = 0;
+    // a for loop that iterates through a to z, '=' is used to include the last iteration
+    for i in 'a'..='z'{
+        _sum += i as u32;
+    }
 }
