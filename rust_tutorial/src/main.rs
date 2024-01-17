@@ -48,14 +48,23 @@ fn basic_one() {
 }
 
 fn data_types() {
-    println!("-----Data Types-----");
+    println!("-----Data Types-----\n");
     let mut choice: String = String::new();
 
+    println!("----Scalar Types----\n");
+    //Rust has four primary Scalar Types(which represents a single value)
+    // -> Integers
+    // -> Floating-point numbers
+    // -> Booleans
+    // -> Character
     println!("---Integers---");
     // Integer Types
-    // Signed Integers - i8, i16, i32, i64, i128, isize
-    // Unsigned Integers - u8, u16, u32, u64, u128, usize
+    // Signed Integers - i8, i16, i32, i64, isize
+    // Unsigned Integers - u8, u16, u32, u64, usize
     // Signed Integers can take up negative values, Unsigned Integers can't
+    // Signed Integers can store numbers from -(2)^n-1 to 2^n-1 - 1 (uses two's complement
+    // representation)
+
     println!("Max i8: {}", i8::MAX);
     println!("Max u8: {}", u8::MAX);
     println!("Max i16: {}", i16::MAX);
@@ -65,14 +74,18 @@ fn data_types() {
     println!("Max i64: {}", i64::MAX);
     println!("Max u64: {}", u64::MAX);
 
+    // Rust has f32 and f64 types of Floating-point numbers
+    // default is f64 as it is roughly the same speed as f32 but capable of more precision
     println!("---Float---");
     let float: f32 = 0.52;
     let float1: f64 = -1.67;
     println!("Float 32: {}", float);
     println!("Float 64: {}", float1);
 
+    // Rust has two types of Boolean values,
+    // -> True
+    // -> False
     println!("---Boolean---");
-    // Boolean Values
     let is_true: bool = true;
     let is_false: bool = false;
     println!("Bool: {}", is_true);
@@ -81,6 +94,7 @@ fn data_types() {
     println!("---String & Character---");
     // String defined with "" and characters defined with ''
     // Character
+    // represents a unicode scalar value (can represents a lot more than just ASCII)
     let grade: char = '^'; // Use single quotes for characters
     println!("Character: {}", grade);
 
@@ -92,7 +106,31 @@ fn data_types() {
     // whereas &str is a constant, fixed-length string used to avoid heap allocation for better
     // performance
     let test1: &str = "World!";
-    println!("&str: {}", test1);
+    println!("&str: {}\n", test1);
+
+    println!("----Compound Types----\n");
+    //Compound Types
+    // groups multiple values into one type
+    // Rust has two primitve Compound types
+    // -> Tuples
+    // -> Arrays
+
+    println!("---Tuples---");
+    // Tuples
+    // hass different types which don't have to be the same data type
+    let tup: (i32, f64, u8) = (34, 9.5, 1);
+    // printing individual values from a tuple
+    let (x, y, z) = tup;
+    println!("printing values from a tuple");
+    println!("x:{},\ny:{},\nz:{}", x, y, z);
+    // values from a tuple can be printed directly using the index
+    println!("Value at 2nd index: {}", tup.2);
+
+    println!("---Array---");
+    // must have all elements of the same type
+    // arrays in rust have fixed-length, they cant grow or shrink in size
+    let a = [1, 2, 5, 7, 9, 10];
+    println!("Accessing 4th Array element: {}", a[3]);
 
     io::stdin()
         .read_line(&mut choice)
